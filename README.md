@@ -12,6 +12,11 @@ But de la manipulation principale : Envoyer un fichier .flac sur un bucket spéc
 ### 1. Pré-requis
 Vous devez créer un projet Google Cloud https://console.cloud.google.com/<br />
 Ensuite, vous devez **explorer et activer les APIs**<br />
+Dans la liste des APIs, recherchez **Google Cloud Storage JSON API** et activez la.<br/>
+Une fois sur cette API, vous devez cliquer sur "identifants" afin de récupérer des clés et codes secrets.
+- cliquez sur **identifants** dans le menu de gauche
+- cliquez sur **+ créer des identifiants**
+- Choisissez parmi la liste de créer un **ID Client Oauth**
 
 
 
