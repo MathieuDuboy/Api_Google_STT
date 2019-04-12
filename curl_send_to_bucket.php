@@ -1,9 +1,11 @@
 <?php
 // Configuration
 define("BASE", "https://www.googleapis.com/upload/storage/v1/b/");
-$client_id     = "922634632013-cuaom4k4s17avf3u1g5tb3ksjfmlmlah.apps.googleusercontent.com";
-$client_secret = "BLVKg9Bb9nKKghxYUJZOA57e";
-$refresh_token = "1/QqvTxl0kIdJOU6dqxI7kCdgpWl-0y4MaXGW2RGW1mmI";
+$client_id     = "922634632013-cuxxxxxxah.apps.gooxxxxxxcontent.com";
+$client_secret = "BLVKxxxxxxJZOA57e";
+$refresh_token = "1/QqvTxl0xxxxxxXGW2RGW1mmI";
+$api_key = "AZSSDdsdsdsdxxxxx41243Ss";
+$bucket = 'test_codeur2';
 
 // Fichier récupéré via l'API OVH ici
 $file = file_get_contents('bonjour-google.flac');
@@ -37,7 +39,6 @@ $authheaders = array(
     "Content-Type: audio/flac"
 );
 
-$bucket = 'test_codeur2';
 $url    = BASE . $bucket . '/o?name=' . $nom_fichier . '&uploadType=media';
 $curl   = curl_init();
 
@@ -66,11 +67,11 @@ $data = array(
         "languageCode" => "fr-FR"
     ),
     "audio" => array(
-        "uri" => "gs://test_codeur2/" . $nom_fichier
+        "uri" => "gs://". $bucket ."/" . $nom_fichier
     )
 );
 
-$ch = curl_init("https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyAXFJQCIO9rkl6Up0-6WrPhJEsY2AH2KlU");
+$ch = curl_init("https://speech.googleapis.com/v1/speech:recognize?key=" . $api_key);
 
 curl_setopt_array($ch, array(
     CURLOPT_POST => 1,
@@ -92,6 +93,6 @@ $tab = json_decode($json, true);
 $transcript     = $tab["results"][0]["alternatives"][0]["transcript"];
 $taux_confiance = $tab["results"][0]["alternatives"][0]["confidence"];
 
-echo "avec un taux de confiance de " . $taux_confiance . ", voici le transcript : " . $transcript;
+echo "Avec un taux de confiance de " . $taux_confiance . ", voici le transcript : " . $transcript;
 
 ?>
