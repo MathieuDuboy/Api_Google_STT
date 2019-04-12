@@ -20,7 +20,14 @@ Une fois sur cette API, vous devez cliquer sur "identifants" afin de récupérer
 
 **Vous devez obtenir des clés du type**<br />
 **ID client**	: 922xxxxxxxxx013-xxxxxxxx.apps.googlexxxxxxxxxxxxnt.com<br />
-**Code secret du client** : BLVKg9BxxxxxxxxxxxxxOA57e<br />
+**Code secret du client** : BLVKg9BxxxxxxxxxxxxxOA57e<br /><br />
 
+**Attention :** Vous devez spécifier un URL de retour pour obtenir le code d'accès.
+Dans mon cas, j'ai crée une page PHP vide sur mon ordinateur local et j'ai renseigné dans la case "URI de redirection autorisés" : http://localhost:8888/get_code.php
+J'utilise [MAMP](https://www.mamp.info/en/) (ou WAMP pour windows) pour travailler en local.
+
+Tout est ok pour passer à la suite.
+
+### 2. Génération & récupération du code d'authorisation
 
 
