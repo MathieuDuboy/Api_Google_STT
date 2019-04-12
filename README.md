@@ -34,7 +34,7 @@ Nous allons utiliser cette procédure uniquement via cURL et PHP : https://cloud
 
 Le principe est de générer un code d'autorisation qui nous permettra alors d'avoir un token d'accès par la suite.<br />
 
-Depuis un navigateur web, copiez et collez cet URL en ayant modifié les champs avec vos valeurs : 
+Depuis un navigateur web, copiez et collez cet URL en ayant modifié les champs avec vos valeurs pour **client_id** et **redirect_uri** : 
 ````
 https://accounts.google.com/o/oauth2/auth?
 client_id=922xxxxxxxxx013-xxxxxxxx.apps.googlexxxxxxxxxxxxnt.com
@@ -44,4 +44,27 @@ client_id=922xxxxxxxxx013-xxxxxxxx.apps.googlexxxxxxxxxxxxnt.com
 &scope=https://www.googleapis.com/auth/cloud-platform
 &approval_prompt=force
 ````
+Vous allez être redirigé vers un pop-up de validation de votre compte Google et vous devrez accepter ensuite que l'application puisse accéder aux Buckets.
+Une fois tout ceci validé, vous serez alors redirigé vers votre URL de redirection défini plus tot et obtiendrez dans l'URL de votre navigateur le code.<br />
 
+**Exemple :** http://localhost:8888/get_code.php?code=4/KgHeqJxzyS_8iXMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxDM09Ye8r4wz7oEnZ0
+
+Récupérez ce code et mettez-le de côté pour la suite.<br />
+Vous avez tout pour passer à l'étape suivante.
+
+### 3. Génération & récupération du token d'accès
+Maintenant vous devez récupérer le token pour accéder à l'API.<br /><br />
+
+Ouvrez l'éditeur de texte et modifier la page get_token.php en remplacant les identifiants par les vôtres puis sauvegardez.<br />
+Lancez alors cette page avec MAMP depuis votre navigateur.<br /><br />
+
+Vous devriez avoir une réponse de ce type dans votre navigateur : <br/>
+````
+  {
+    "access_token": "ya29.GlvoBvxxxxxxxx2M-3VcGGPc-in07G7SY0ea0xxxxxxxxxB9Yc",
+    "expires_in": 3600,
+    "refresh_token": "1/QqvTxl0kxxxxxxxxxxxxxxxxxxxxxW2RGW1mmI",
+    "scope": "https://www.googleapis.com/auth/cloud-platform",
+    "token_type": "Bearer"
+  }
+````
