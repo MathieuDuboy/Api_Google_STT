@@ -29,11 +29,10 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
 $response = curl_exec($ch);
 curl_close($ch);
 $r = json_decode($response, true);
-
 $accessToken = $r["access_token"];
-
-
 $key         = $accessToken;
+
+// Upload du fichier
 $authheaders = array(
     "Authorization: Bearer " . $key,
     "Content-Type: audio/flac"
@@ -41,26 +40,21 @@ $authheaders = array(
 
 $url    = BASE . $bucket . '/o?name=' . $nom_fichier . '&uploadType=media';
 $curl   = curl_init();
-
 curl_setopt($curl, CURLOPT_POSTFIELDS, $file);
-
 curl_setopt($curl, CURLOPT_HTTPHEADER, $authheaders);
 curl_setopt($curl, CURLOPT_URL, $url);
-
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($curl, CURLOPT_USERAGENT, "HTTP/1.1.5");
-
 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
 // 1 is CURL_SSLVERSION_TLSv1, which is not always defined in PHP.
 curl_setopt($curl, CURLOPT_SSLVERSION, 1);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_HEADER, true);
-
-
 $response = curl_exec($curl);
+// fin UPLOAD
 
-
+// Speech To Text
 $data = array(
     'config' => array(
         "encoding" => 'FLAC',
@@ -89,7 +83,6 @@ curl_close($ch);
 
 // Récupèrer u  array et la valeur du transcript
 $tab = json_decode($json, true);
-
 $transcript     = $tab["results"][0]["alternatives"][0]["transcript"];
 $taux_confiance = $tab["results"][0]["alternatives"][0]["confidence"];
 
