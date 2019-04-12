@@ -7,6 +7,7 @@ But de la manipulation principale : Envoyer un fichier .flac sur un bucket spéc
 3. Génération & récupération du token d'accès
 4. Re-Générartion du token via refresh_token lors de chaque requête
 5. Envoi du fichier .flac via cURL sur le bucket
+6. Récupération du Text à partir du fichier .flac
 
 ## La manipulation
 ### 1. Pré-requis
@@ -78,3 +79,17 @@ Ouvrez l'éditeur de texte et modifier la page [curl_send_to_bucket.php](https:/
 Lancez alors cette page avec MAMP depuis votre navigateur.<br />
 
 Vous obtiendrez alors un message de validation avec les retours de la requête de succès. A vous de vérifier que le fichier a bien été transféré sur le bucket.
+
+### 5. Envoi du fichier .flac via cURL sur le bucket
+Ici vous devez juste vous assurer que les fichiers que vous récupérez via l'API OVH sont en MONO et non en STEREO. Vous devez configurer si disponible ce paramètre<br />
+Sinon, vous aurez des problèmes de transcription dans l'étape suivante. (Google accepte uniquement les FLAC mono)<br />
+
+### 6. Récupération du Text à partir du fichier .flac
+Après avoir récupéré et renseignée sur le fichier l'API key de l'API Speech To Text depuis votre interface Google Cloud Console (procédure similaire expiquée ici : http://nerdvittles.com/?page_id=21210 ), votre fichier sera analysé par Google.<br />
+
+Vous poyvez modifier les paramètres de la requete (langue, son, qualité).<br />
+Le script reprend automatiquement le dernier fichier envoyé sur le Bucket.
+
+
+
+
