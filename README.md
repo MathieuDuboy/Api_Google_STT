@@ -5,7 +5,7 @@ But de la manipulation principale : Envoyer un fichier .flac sur un bucket spéc
 1. Pré-requis
 2. Génération & récupération du code d'authorisation
 3. Génération & récupération du token d'accès
-4. Générartion du refresh_token lors de chaque requête
+4. Re-Générartion du token via refresh_token lors de chaque requête
 5. Envoi du fichier .flac via cURL sur le bucket
 
 ## La manipulation
@@ -53,10 +53,10 @@ Récupérez ce code et mettez-le de côté pour la suite.<br />
 Vous avez tout pour passer à l'étape suivante.
 
 ### 3. Génération & récupération du token d'accès
-Maintenant vous devez récupérer le token pour accéder à l'API.<br /><br />
+Maintenant vous devez récupérer le token pour accéder à l'API.<br />
 
-Ouvrez l'éditeur de texte et modifier la page get_token.php en remplacant les identifiants par les vôtres puis sauvegardez.<br />
-Lancez alors cette page avec MAMP depuis votre navigateur.<br /><br />
+Ouvrez l'éditeur de texte et modifier la page [get_token.php](https://github.com/MathieuDuboy/Api_Google_STT/blob/master/get_token.php) en remplacant les identifiants par les vôtres puis sauvegardez.<br />
+Lancez alors cette page avec MAMP depuis votre navigateur.<br />
 
 Vous devriez avoir une réponse de ce type dans votre navigateur : <br/>
 ````
@@ -68,3 +68,13 @@ Vous devriez avoir une réponse de ce type dans votre navigateur : <br/>
     "token_type": "Bearer"
   }
 ````
+Récupérez le "**refresh_token**" et mettez-le de côté.
+
+### 4. Re-Générartion du token via refresh_token lors de chaque requête
+Maintenez, vous pouvez passer à l'envoi de vos fichiers vers le Bucket.<br />
+Vous devrez alors à chaque fois regénérer le token d'accès avant d'effectuer l'envoi.<br />
+
+Ouvrez l'éditeur de texte et modifier la page [curl_send_to_bucket.php](https://github.com/MathieuDuboy/Api_Google_STT/blob/master/curl_send_to_bucket.php) en remplacant les identifiants par les vôtres puis sauvegardez.<br />
+Lancez alors cette page avec MAMP depuis votre navigateur.<br />
+
+Vous obtiendrez alors un message de validation avec les retours de la requête de succès. A vous de vérifier que le fichier a bien été transféré sur le bucket.
