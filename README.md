@@ -30,4 +30,18 @@ Tout est ok pour passer à la suite.
 
 ### 2. Génération & récupération du code d'authorisation
 
+Nous allons utiliser cette procédure uniquement via cURL et PHP : https://cloud.google.com/storage/docs/authentication?hl=fr
+
+Le principe est de générer un code d'autorisation qui nous permettra alors d'avoir un token d'accès par la suite.<br />
+
+Depuis un navigateur web, copiez et collez cet URL en ayant modifié les champs avec vos valeurs : 
+````
+https://accounts.google.com/o/oauth2/auth?
+client_id=922xxxxxxxxx013-xxxxxxxx.apps.googlexxxxxxxxxxxxnt.com
+&response_type=code
+&access_type=offline
+&redirect_uri=http://localhost:8888/get_code.php
+&scope=https://www.googleapis.com/auth/cloud-platform
+&approval_prompt=force
+````
 
