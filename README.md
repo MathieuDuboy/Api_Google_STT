@@ -18,6 +18,9 @@ Une fois sur cette API, vous devez cliquer sur "identifants" afin de récupérer
 - cliquez sur **+ créer des identifiants**
 - Choisissez parmi la liste de créer un **ID Client Oauth**
 
+**Vous devez obtenir des clés du type**<br />
+**ID client**	: 922xxxxxxxxx013-xxxxxxxx.apps.googlexxxxxxxxxxxxnt.com<br />
+**Code secret du client** : BLVKg9BxxxxxxxxxxxxxOA57e<br />
 
 
 
