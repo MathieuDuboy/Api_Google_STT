@@ -34,7 +34,7 @@ $authheaders = array(
 );
 
 
-$file     = 'bonjour-google';
+$file     = file_get_contents('bonjour-google.flac');
 $fileName = 'bonjour-google.flac';
 $url      = BASE . $bucket . '/o?name=bonjour-google3.flac&uploadType=media';
 // Le paramètre &name= peut accepter un nom dynamique si vous le souhaitez.
